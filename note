@@ -1,0 +1,77 @@
+
+
+                            Angular -(local host:4200)
+
+                        project creation syntax : ng new project_name --routing
+
+                        project run : ng serve --open
+
+                        component creation : syntax : ng g c component_name
+
+                        service creation : syntax : ng g s service_name
+
+
+
+
+
+                        Angular Concepts
+
+
+                        1.component - {html, css ,ts}- Root component - AppComponent
+
+                        2. Module - Root Module - AppModule
+
+                        3. Data Binding
+
+                            3.1 One Way Binding
+
+                                3.1.1 component to view
+
+                                    3.1.1.1 String Interpolation : syntax -{{expression}}
+
+                                    3.1.1.2 Property Binding - syntax : [binding target]="binding source"
+
+                                3.1.2 View to Component
+
+                                    3.1.2.1 Event Binding - syntax: (event-name)="function call"
+
+                                    3.1.2.1 Event Binding using $event- syntax: (event-name)="function ($event)"
+
+                                    3.1.2.3 Template reference variable - syntax : #variable_name
+                            
+                            
+                            3.2  Two Way Binding- FormsModule import -[(ngModel)]="variable_name"
+                        
+                        4. Angular routing
+
+                        5. Dependency Injection- In constructor 
+                        syntax -( access specifies variable_name : dependent class name)
+
+                        6. Angular Services
+
+                        7. ngSubmit - use inside form tag ,  remove event from button tag and change type of button as submit
+
+                        8. Angular Forms
+
+                                8.1 Template driven Forms
+
+                                8.2 Model driven Forms
+
+                                    8.2.1 Reactive Forms -To add Validations-{Add ReactiveFormsModule in app Module}
+
+                                    {Form Group,Form Array, }
+                        
+                        9. Angular Directives -DOM Manipulation
+
+                            9.1 Component Directives
+                            9.2 Structural Directives
+
+                                9.2.1 ngIf - syntax : ngIf = "condition"
+                                
+
+                        
+
+
+                                    
+
+                        

@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+.get{
+    margin-left: 17px;
+    padding: 5px;
+
+}
+
+.login{
+    
+    padding: 5px;
+}
+.navbar{
+    background-color:  #c1cfe8;
+
+}
+.bankname{
+    font-family: ui-serif;
+    font-size: 40px;
+    margin-left: 15px;
+    font-weight: bold;
+    color: #4b6088;
+}
+
+
+.fa-university{
+    font-size: 44px;
+    margin-left: 15px;
+    color: #4b6088;
+}
+.form{
+    margin-top: 112px;
+      background: #4194a2;
+      height: 21rem;
+      padding: 50px;
+      border-radius: 50px;
+  }
+  body{
+    background-image: url(./assets/loginpage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    height: 100%;
+}  
+
+#reg{
+    margin-left: 150px;
+}
+.sign{
+    background-color: rgb(156 161 216);
+    padding: 36px;
+    margin-top: 112px;
+    }
+
+#ext{
+    margin-left: 120px;
+}
+h3{
+    color: aliceblue;
+    margin-left: 110px;
+    margin-top: -30px;
+    font-family: initial;
+}
+#cre{
+    margin-left: 63px;
+    margin-top: -3px;
+}
+.deposit, .withdraw {
+    margin-left: 50px;
+    margin-top: 32px;
+    background: #1f8254;
+    height: 25rem;
+    padding: 50px;
+    border-radius: 50px;
+}
+#h3_deposit{
+    margin-left: 76px;
+}
+
+#h3_withdraw{
+    margin-left: 36px;
+}
