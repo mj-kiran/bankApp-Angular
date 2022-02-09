@@ -49,16 +49,32 @@ export class RegisterComponent implements OnInit {
 
     console.log(this.registerForm);
 
-    let result=this.ds.register(acno,pswd,uname)
+    // asynchronous
+
+    this.ds.register(acno,pswd,uname).subscribe((result:any)=>{
+      if (result){
+        alert(result.message)
+        this.router.navigateByUrl("")
+      }
+      // else{
+      //   alert("Account already Exist")
+      // }
+
+    },
+    (result)=>{
+      alert(result.error.message)
+    }
+    )
+  
 
 
-    if (result){
-      alert("Account Registered Successfully......")
-      this.router.navigateByUrl("")
-    }
-    else{
-      alert("Account already Exist")
-    }
+    // if (result){
+    //   alert("Account Registered Successfully......")
+    //   this.router.navigateByUrl("")
+    // }
+    // else{
+    //   alert("Account already Exist")
+    // }
     
 
     }

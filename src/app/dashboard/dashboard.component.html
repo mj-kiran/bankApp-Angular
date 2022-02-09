@@ -1,159 +1,168 @@
 <div>
   <nav class="navbar navbar-expand-lg navbar-light ">
-      
+
     <div class="container-fluid">
-        <a href=""><i class="fas fa-university"></i></a>
-        <a class="bankname navbar-brand" href="">ABC BANK
-          
-    
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Help</a>
-            </li>
-            
-            
-          </ul>
-          <button type="button" class="login btn btn-outline-primary" onclick="bank.loginPage()">Log In</button>
-          <button type="button" class="get btn btn-outline-primary" onclick="bank.registration()">Get Started</button>
-    
-          
-     
-         
-        </div>
+      <a href=""><i class="fas fa-university"></i></a>
+      <p class="bankname navbar-brand" href="">ABC BANK
+
+
+      </p>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Help</a>
+          </li>
+
+
+        </ul>
+        
+
+        <button type="button" class="login btn btn-outline-primary" routerLink="/transaction">Transaction History</button>
+        <button type="button" class="get btn btn-outline-danger" >Log Out</button>
+
+
+
+
       </div>
-  
+    </div>
+
   </nav>
 
 </div>
-  
+
 <div>
-  <h1>Welcome user</h1>
+  <h1>Welcome {{user}}</h1>
 </div>
 
+<button type="button" class="delete btn btn-dark" (click)="deleteFromParent()">Delete Account</button>
 
-  <!-- Deposit -->
-    
-  <div class="container">
-          <div class="row">
-            <div class="col-4"></div>
-  
-            <div class="col-4">
+<!-- parent - Dashboard Component & Child- Delete confirmation -->
+       <app-delete-confirmation (onDelete)="delete($event)" [item]="acno"></app-delete-confirmation>
 
 
-  
-              <form class="deposit" [formGroup]="depositForm" (ngSubmit)="deposit()">
-                <h3 id="h3_deposit">Deposit Form</h3>
-                <div class="mb-3">
-                  <label  class="form-label" >Account No</label>
-                  <input type="text" class="form-control" formControlName="acno" name="acno"   placeholder="Account Number Please" id="login_accno">
-                  
-                </div>
+<!-- Deposit -->
 
-                <div class="error1" *ngIf="(this.depositForm.get('acno')?.touched ||this.depositForm.get('acno')?.dirty)&&this.depositForm.get('acno')?.errors">
-                  Invalid AccountNumber
-    
-                </div>
-                <div class="mb-3">
-                  <label  class="form-label" >Password</label>
-                  <input type="password" class="form-control" formControlName="pswd" name="pswd"  placeholder="type password"  id="login_password" >
-                </div>
+<div class="container" id="deposit">
 
-                <div class="error2" *ngIf="(this.depositForm.get('pswd')?.touched ||this.depositForm.get('pswd')?.dirty)&&this.depositForm.get('pswd')?.errors">
-                  Invalid password
-    
-                </div>
+  <div class="col-4">
 
-                <div class="mb-3">
-                    <label  class="form-label" >Amount</label>
-                    <input type="text" class="form-control"  formControlName="amount" name="amount"   placeholder="Amount">
-                    
-                  </div>
+    <form class="deposit" [formGroup]="depositForm" (ngSubmit)="deposit()">
+      <h3 id="h3_deposit">Deposit Form</h3>
+      <div class="mb-3">
+        <label class="form-label">Account No</label>
+        <input type="text" class="form-control" formControlName="acno" name="acno" placeholder="Account Number Please"
+          id="login_accno">
 
-                  <div class="error3" *ngIf="(this.depositForm.get('amount')?.touched ||this.depositForm.get('amount')?.dirty)&&this.depositForm.get('amount')?.errors">
-                    Invalid amount
-      
-                  </div>
-                
-                <button type="submit" class="btn btn-primary" value="deposit" >Deposit</button>
-             
+      </div>
+
+      <div class="error1"
+        *ngIf="(this.depositForm.get('acno')?.touched ||this.depositForm.get('acno')?.dirty)&&this.depositForm.get('acno')?.errors">
+        Invalid AccountNumber
+
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="pswd" name="pswd" placeholder="type password"
+          id="login_password">
+      </div>
+
+      <div class="error2"
+        *ngIf="(this.depositForm.get('pswd')?.touched ||this.depositForm.get('pswd')?.dirty)&&this.depositForm.get('pswd')?.errors">
+        Invalid password
+
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Amount</label>
+        <input type="text" class="form-control" formControlName="amount" name="amount" placeholder="Amount">
+
+      </div>
+
+      <div class="error3"
+        *ngIf="(this.depositForm.get('amount')?.touched ||this.depositForm.get('amount')?.dirty)&&this.depositForm.get('amount')?.errors">
+        Invalid amount
+
+      </div>
+
+      <button type="submit" class="btn btn-primary" value="deposit">Deposit</button>
 
 
-              </form>
-  
-  
-            
-            
 
-          </div>
+    </form>
 
-            <div class="col-4"></div>
-          </div>
+
+
+
+
+  </div>
+
+
+
+  <!-- withdraw -->
+
+
+  <div class="container" id="withdraw">
+
+
+    <div class="col-4">
+
+
+
+      <form class="withdraw" [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+        <h3 id="h3_withdraw">Withdraw Form</h3>
+        <div class="mb-3">
+          <label class="form-label">Account No</label>
+          <input type="text" class="form-control" formControlName="acno1" name="acno1"
+            placeholder="Account Number Please" id="login_accno">
+
+        </div>
+        <div class="error4"
+          *ngIf="(this.withdrawForm.get('acno1')?.touched ||this.withdrawForm.get('acno1')?.dirty)&&this.withdrawForm.get('acno1')?.errors">
+          Invalid AccountNumber
+
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="pswd1" name="pswd1" placeholder="type password"
+            id="login_password">
         </div>
 
-<!-- withdraw -->
+        <div class="error5"
+          *ngIf="(this.withdrawForm.get('pswd1')?.touched ||this.withdrawForm.get('pswd1')?.dirty)&&this.withdrawForm.get('pswd1')?.errors">
+          Invalid Password
+
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Amount</label>
+          <input type="text" class="form-control" formControlName="amount1" name="amount1" placeholder="Amount">
+
+        </div>
+
+        <div class="error6"
+          *ngIf="(this.withdrawForm.get('amount1')?.touched ||this.withdrawForm.get('amount1')?.dirty)&&this.withdrawForm.get('amount1')?.errors">
+          Invalid amount
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" value="deposit">Withdraw</button>
 
 
-        <div class="container">
-            <div class="row">
-              <div class="col-4"></div>
-    
-              <div class="col-4">
-  
-  
-    
-                <form class="withdraw" [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
-                  <h3 id="h3_withdraw">Withdraw Form</h3>
-                  <div class="mb-3">
-                    <label  class="form-label" >Account No</label>
-                    <input type="text" class="form-control"  formControlName="acno1" name="acno1"   placeholder="Account Number Please" id="login_accno">
-                    
-                  </div>
-                  <div class="error4" *ngIf="(this.withdrawForm.get('acno1')?.touched ||this.withdrawForm.get('acno1')?.dirty)&&this.withdrawForm.get('acno1')?.errors">
-                    Invalid AccountNumber
-      
-                  </div>
-                  <div class="mb-3">
-                    <label  class="form-label" >Password</label>
-                    <input type="password" class="form-control" formControlName="pswd1" name="pswd1"  placeholder="type password"  id="login_password" >
-                  </div>
 
-                  <div class="error5" *ngIf="(this.withdrawForm.get('pswd1')?.touched ||this.withdrawForm.get('pswd1')?.dirty)&&this.withdrawForm.get('pswd1')?.errors">
-                    Invalid Password
-      
-                  </div>
-  
-                  <div class="mb-3">
-                      <label  class="form-label" >Amount</label>
-                      <input type="text" class="form-control"  formControlName="amount1" name="amount1"   placeholder="Amount">
-                      
-                    </div>
+      </form>
 
-                    <div class="error6" *ngIf="(this.withdrawForm.get('amount1')?.touched ||this.withdrawForm.get('amount1')?.dirty)&&this.withdrawForm.get('amount1')?.errors">
-                      Invalid amount
-        
-                    </div>
-                  
-                  <button type="submit" class="btn btn-primary" value="deposit" >Withdraw</button>
-               
-  
-  
-                </form>
-    
-    
-              
-              
-  
-            </div>
-  
-              <div class="col-4"></div>
-            </div>
-          </div>
-  
+
+
+
+
+    </div>
+
+    <div class="col-4"></div>
+  </div>

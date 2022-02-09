@@ -68,7 +68,31 @@
 
                                 9.2.1 ngIf - syntax : ngIf = "condition"
                                 
+                                9.2.2 ngFor -
 
+                                9.2.3 ngSwitch
+
+                        10. local storage -store data permanantly to browser
+
+                            10.1 setItem -to insert
+                            10.2 getItem - to get data
+                            10.3 removeItem -
+
+                        11. Import HttpClientModule       
+
+                        12. Asynchronous event - Observable RXJS
+
+                            12.1 Resolve state - subscribe ()
+
+                            12.2 Reject state- catch()
+                            
+                        13. Parent child Communication
+
+                            13.1 Parent to Child - Input decorator
+
+                            13.2 Child to Parent - Output decorator
+
+                        14. Event Emitter -
                         
 
 

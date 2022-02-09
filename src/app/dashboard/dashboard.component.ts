@@ -38,23 +38,39 @@ export class DashboardComponent implements OnInit {
   })
 
 
-  constructor(private ds:DataService, private fb:FormBuilder) { }
+  user:any
+  //= this.ds.currentUserName
+
+  // acno=""
+
+  constructor(private ds:DataService, private fb:FormBuilder) { 
+    if(localStorage.getItem("currentUserName")){
+    this.user=JSON.parse(localStorage.getItem("currentUserName") ||"")
+    }
+  }
 
   ngOnInit(): void {
   }
 
   deposit(){
-    var acno=this.acno
-    var pswd=this.pswd
-    var amount=this.amount
+    var acno=this.depositForm.value.acno
+    var pswd=this.depositForm.value.pswd
+    var amount=this.depositForm.value.amount
 
     if(this.depositForm.valid){
-      let result=this.ds.deposit(acno,pswd,amount)
+      this.ds.deposit(acno,pswd,amount).subscribe((result:any)=>{
+        if (result){
+          alert(result.message)
+          
+        }
+      
+      },
+    (result:any)=> {
+          alert(result.error.message);
+        }
+      )
 
-    if(result){
-
-      alert(amount+" credited. New balance is :"+ result)
-    }
+    
 
     // alert("Deposit Clicked!!!!!")
   }
@@ -67,22 +83,37 @@ export class DashboardComponent implements OnInit {
 
   withdraw(){
 
-    var acno=this.acno1
-    var pswd=this.pswd1
-    var amount=this.amount1
+    var acno=this.withdrawForm.value.acno1
+    var pswd=this.withdrawForm.value.pswd1
+    var amount=this.withdrawForm.value.amount1
 
    if(this.withdrawForm.valid){
-    let result=this.ds.withdraw(acno,pswd,amount)
+    this.ds.withdraw(acno,pswd,amount).subscribe((result:any)=>{
+      if (result){
+        alert(result.message)
+        
+      }
+      
+    },
+  (result:any)=> {
+        alert(result.error.message);
+      }
+    ) 
+}
 
-    if(result){
-
-      alert(amount+" debited. New balance is :"+ result)
-    }
-    // alert("Withdraw Clicked!!!!")
-  }
   else{
     alert("invalid form")
   }
 
+  }
+
+  deleteFromParent(){
+    this.acno=JSON.parse(localStorage.getItem("currentAcno") || '')
+
    }
+
+  delete(event:any){
+    alert("Message from parent"+event)
+  }
+
 }
