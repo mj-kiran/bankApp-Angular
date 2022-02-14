@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment'
 const options ={
   headers:new HttpHeaders()
 }
@@ -30,6 +31,8 @@ export class DataService {
     }
     // asynchronous
     return this.http.post('http://localhost:3000/getTransaction/'+acno,data,this.getOptions())
+    // return this.http.post(environment.apiUrl+'/getTransaction/'+acno,data,this.getOptions())
+
 
   }
 
@@ -78,6 +81,8 @@ export class DataService {
 // asynchronous
 
     return this.http.post('http://localhost:3000/register',data)
+    // return this.http.post(environment.apiUrl+'/register',data)
+
   }
 
   login(acno: any, password: any) {
@@ -92,6 +97,8 @@ export class DataService {
 // asynchronous
 
     return this.http.post('http://localhost:3000/login',data)
+    // return this.http.post(environment.apiUrl+'/login',data)
+
   }
 
 
@@ -110,6 +117,8 @@ export class DataService {
     // asynchronous
 
     return this.http.post('http://localhost:3000/deposit',data,this.getOptions())
+    // return this.http.post(environment.apiUrl+'/deposit',data,this.getOptions())
+
   }
   // to add token into the request header
   getOptions(){
@@ -140,11 +149,13 @@ const data ={
   // asynchronous
 
   return this.http.post('http://localhost:3000/withdraw',data,this.getOptions())
+  // return this.http.post(environment.apiUrl+'/withdraw',data,this.getOptions())
 }
 
 delete(acno:any){
   
-  return this.http.delete('http://localhost:3000/deleteAcc/'+acno,this.getOptions())
+  // return this.http.delete('http://localhost:3000/deleteAcc/'+acno,this.getOptions())
+  return this.http.delete(environment.apiUrl+'/deleteAcc/'+acno,this.getOptions())
 
 
 }
