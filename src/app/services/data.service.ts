@@ -154,8 +154,8 @@ const data ={
 
 delete(acno:any){
   
-  // return this.http.delete('http://localhost:3000/deleteAcc/'+acno,this.getOptions())
-  return this.http.delete(environment.apiUrl+'/deleteAcc/'+acno,this.getOptions())
+  return this.http.delete('http://localhost:3000/deleteAcc/'+acno,this.getOptions())
+  // return this.http.delete(environment.apiUrl+'/deleteAcc/'+acno,this.getOptions())
 
 
 }
