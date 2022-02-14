@@ -10,11 +10,14 @@
 
                         service creation : syntax : ng g s service_name
 
+                        Directive creation : syntax : ng g d directive_name
 
 
 
 
-                        Angular Concepts
+
+
+                                    Angular Concepts
 
 
                         1.component - {html, css ,ts}- Root component - AppComponent
@@ -71,6 +74,12 @@
                                 9.2.2 ngFor -
 
                                 9.2.3 ngSwitch
+
+                            9.3 Attribute Directive - to set of style to view
+
+                                9.3.1 in built -ngClass
+
+                                9.3.2 user defined
 
                         10. local storage -store data permanantly to browser
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -43,7 +44,7 @@ export class DashboardComponent implements OnInit {
 
   // acno=""
 
-  constructor(private ds:DataService, private fb:FormBuilder) { 
+  constructor(private ds:DataService, private fb:FormBuilder, private router:Router) { 
     if(localStorage.getItem("currentUserName")){
     this.user=JSON.parse(localStorage.getItem("currentUserName") ||"")
     }
@@ -113,7 +114,23 @@ export class DashboardComponent implements OnInit {
    }
 
   delete(event:any){
-    alert("Message from parent"+event)
+    // alert("Message from parent"+event)
+    this.ds.delete(event).subscribe((result:any)=>{
+      if(result){
+        alert(result.message)
+        this.router.navigateByUrl("")
+      }
+      
+    },
+    (result)=>{
+      alert(result.error.message)
+
+    }
+    )
+
+  }
+  cancel(){
+    this.acno=""
   }
 
 }

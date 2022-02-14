@@ -44,17 +44,17 @@
 <button type="button" class="delete btn btn-dark" (click)="deleteFromParent()">Delete Account</button>
 
 <!-- parent - Dashboard Component & Child- Delete confirmation -->
-       <app-delete-confirmation (onDelete)="delete($event)" [item]="acno"></app-delete-confirmation>
+       <app-delete-confirmation (onCancel)="cancel()" (onDelete)="delete($event)" [item]="acno"></app-delete-confirmation>
 
 
 <!-- Deposit -->
 
-<div class="container" id="deposit">
+<div  class="container" id="deposit">
 
-  <div class="col-4">
+  <div  class="col-4">
 
-    <form class="deposit" [formGroup]="depositForm" (ngSubmit)="deposit()">
-      <h3 id="h3_deposit">Deposit Form</h3>
+    <form [ngClass]="acno? 's1' : '' " class="deposit" [formGroup]="depositForm" (ngSubmit)="deposit()">
+      <h3 appHighlight id="h3_deposit">Deposit Form</h3>
       <div class="mb-3">
         <label class="form-label">Account No</label>
         <input type="text" class="form-control" formControlName="acno" name="acno" placeholder="Account Number Please"
@@ -115,8 +115,8 @@
 
 
 
-      <form class="withdraw" [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
-        <h3 id="h3_withdraw">Withdraw Form</h3>
+      <form [ngClass]="acno? 's1' : '' " class="withdraw" [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+        <h3 appHighlight id="h3_withdraw">Withdraw Form</h3>
         <div class="mb-3">
           <label class="form-label">Account No</label>
           <input type="text" class="form-control" formControlName="acno1" name="acno1"
