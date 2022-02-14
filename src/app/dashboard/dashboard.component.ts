@@ -44,13 +44,28 @@ export class DashboardComponent implements OnInit {
 
   // acno=""
 
+  lDate:any
+
   constructor(private ds:DataService, private fb:FormBuilder, private router:Router) { 
+    this.lDate=new Date()
     if(localStorage.getItem("currentUserName")){
     this.user=JSON.parse(localStorage.getItem("currentUserName") ||"")
     }
   }
 
   ngOnInit(): void {
+    if(!localStorage.getItem("token")){
+      alert("please Log In")
+      this.router.navigateByUrl("")
+    }
+  }
+  logout(){
+    localStorage.removeItem("currentAcno")
+    localStorage.removeItem("currentUserName")
+    localStorage.removeItem("token")
+    this.router.navigateByUrl("")
+    
+    
   }
 
   deposit(){
